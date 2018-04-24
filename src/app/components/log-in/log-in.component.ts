@@ -12,7 +12,7 @@ import {State} from "../store/auth.reducers";
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
-  user: User = {};
+  user: User = new User();
   state: State;
 
   auth$: Observable<any>;

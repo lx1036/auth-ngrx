@@ -12,6 +12,7 @@ import {
   SignUpFailureAction, SignUpSuccessAction
 } from "./auth.actions";
 
+import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/catch';
@@ -32,6 +33,7 @@ export class AuthEffects {
   // LogInAction 会被 NGRX 自动放入 Effect 转变为新的 Action，然后新的 Action 会被 NGRX 自动放入 Reducer
   @Effect()
   LogIn: Observable<Action> = this.actions.ofType(AuthActionTypes.LOGIN)
+    .do(() => {console.log('LOGIN effects');})
     .map((action: LogInAction) => action.payload)
     .switchMap((payload: User) => {
       return this.authService.logIn(payload.email, payload.password).map((response: {status: string, token: string}) => {
@@ -45,6 +47,8 @@ export class AuthEffects {
   LogInSuccess: Observable<Action> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
     tap((action: LogInSuccessAction) => {
+      console.log('LOGIN_SUCCESS effects');
+
       localStorage.setItem('token', action.payload.token);
 
       // this.router.navigateByUrl('/');

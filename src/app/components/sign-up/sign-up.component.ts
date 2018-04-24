@@ -13,7 +13,7 @@ import {State} from "../store/auth.reducers";
 })
 export class SignUpComponent implements OnInit {
   auth$: Observable<any>;
-  user: User = {};
+  user: User = new User();
   errorMessage: string | null;
 
   constructor(private store: Store<AppState>) {

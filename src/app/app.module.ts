@@ -20,7 +20,6 @@ import { StatusComponent } from './components/status/status.component';
 // import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { AppEffects } from './app.effects';
 
 
 @NgModule({
@@ -45,7 +44,7 @@ import { AppEffects } from './app.effects';
       {path: '*', redirectTo: '/'},
     ]),
 
-    EffectsModule.forRoot([AuthEffects, AppEffects]),
+    EffectsModule.forRoot([AuthEffects]),
     StoreModule.forRoot(reducers),
     // StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument({

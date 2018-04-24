@@ -1,6 +1,7 @@
 import {User} from "../models/user";
 import {Action} from "@ngrx/store";
 import {All, AuthActionTypes} from "./auth.actions";
+import {Observable} from "rxjs/Observable";
 
 
 export interface State {
@@ -29,7 +30,11 @@ export const initialState: State = {
  */
 export function reducer(state: State = initialState, action: All): State {
   switch (action.type) {
+    case AuthActionTypes.LOGIN:
+      Observable.of(0).do(() => {console.log('LOGIN reducer')}).subscribe(() => {});
+      return {...state, isAuthenticated: false, user: action.payload, errorMessage: null};
     case AuthActionTypes.LOGIN_SUCCESS:
+      console.log('LOGIN_SUCCESS reducer');
       return {...state, isAuthenticated: true, user: action.payload, errorMessage: null};
     case AuthActionTypes.LOGIN_FAILURE:
       return {...state, errorMessage: 'Incorrect email and/or password.'};
