@@ -17,6 +17,10 @@ import {reducers} from "./components/store/app.states";
 import { LogOutComponent } from './components/log-out/log-out.component';
 import {ErrorInterceptor, TokenInterceptor} from "./components/services/token.service";
 import { StatusComponent } from './components/status/status.component';
+// import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { AppEffects } from './app.effects';
 
 
 @NgModule({
@@ -41,8 +45,13 @@ import { StatusComponent } from './components/status/status.component';
       {path: '*', redirectTo: '/'},
     ]),
 
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, AppEffects]),
     StoreModule.forRoot(reducers),
+    // StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production // Restrict extension to log-only mode
+    }) : [],
   ],
   providers: [
     AuthService,

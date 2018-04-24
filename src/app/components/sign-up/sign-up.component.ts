@@ -17,7 +17,7 @@ export class SignUpComponent implements OnInit {
   errorMessage: string | null;
 
   constructor(private store: Store<AppState>) {
-    this.auth$ = this.store.select(selectAuthState);
+    this.auth$ = store.select(selectAuthState);
   }
 
   ngOnInit() {

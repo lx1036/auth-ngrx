@@ -163,6 +163,14 @@
   version "5.2.0"
   resolved "http://registry.npm.taobao.org/@ngrx/effects/download/@ngrx/effects-5.2.0.tgz#aa762b69cb6fd4644d724a1cecd265caa42baf09"
 
+"@ngrx/schematics@^5.2.0":
+  version "5.2.0"
+  resolved "http://registry.npm.taobao.org/@ngrx/schematics/download/@ngrx/schematics-5.2.0.tgz#ab7180d79f0ec68bd4ac3ef4ec83b9348d18d26c"
+
+"@ngrx/store-devtools@^5.2.0":
+  version "5.2.0"
+  resolved "http://registry.npm.taobao.org/@ngrx/store-devtools/download/@ngrx/store-devtools-5.2.0.tgz#2fff916a9aa349375826772b359dbb64b9e5d622"
+
 "@ngrx/store@5.2.0":
   version "5.2.0"
   resolved "http://registry.npm.taobao.org/@ngrx/store/download/@ngrx/store-5.2.0.tgz#627ed74c9cd95462930485d912a557117b23903e"

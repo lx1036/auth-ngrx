@@ -46,7 +46,8 @@ export class AuthEffects {
     ofType(AuthActionTypes.LOGIN_SUCCESS),
     tap((action: LogInSuccessAction) => {
       localStorage.setItem('token', action.payload.token);
-      this.router.navigateByUrl('/');
+
+      // this.router.navigateByUrl('/');
     }),
   );
 
